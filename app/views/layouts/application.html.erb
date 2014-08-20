@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class = "container">
+  <%if flash[:notice]%>
+    <div class ="alert">
+        <%= flash[:notice]%>
+    </div>
+  <%end%>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#">首页</a>
+          </li>
+          <li><%= link_to "Users" ,users_path %></li>
+          <li><%= link_to "Contacts" ,contacts_path%></li>
+          <li><%= link_to "Phones" ,phones_path%></li>
+          <li><%= sign_in? ? (link_to "Logout",logout_sessions_path) : (link_to "Login" ,new_sessions_path)%></li>
+          <li><%= link_to 'Reset Password',edit_sessions_path(session[:user_id])%></li>
+          <li><%= link_to "Contact Me" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span9"><%= yield %></div>
+    <div class="span3">
+      <h2>About Me</h2>
+      <p>This is first step for rails by frank le.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

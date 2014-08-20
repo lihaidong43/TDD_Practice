@@ -1,0 +1,14 @@
+<%= form_for(@user,:url => reset_sessions_path, :html => { :class => 'form-signin' }) do |f|%>
+    <h2 class = 'form-signin-heading'>Reset password</h2>
+    <div class="field">
+      <%= f.password_field :old_password ,:placeholder => 'Old Password'%>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password,:placeholder => 'New Password' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Reset' ,:class => 'btn btn-large btn-primary'%>
+    </div>
+<%end%>
