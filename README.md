@@ -1,7 +1,7 @@
 #blog
 ====
 
-##This is blog for me
+##This is blog
 
 ##This is rails project
 
